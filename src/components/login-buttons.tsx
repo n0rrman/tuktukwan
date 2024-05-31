@@ -33,6 +33,7 @@ export default function LoginButtons() {
       <button
         onClick={() => {
           fetch("https://tuktukwan.henriknorrman.com/api/auth/logout");
+          window.location.reload();
         }}
         className="text-center bg-red-700 text-white w-64"
       >
