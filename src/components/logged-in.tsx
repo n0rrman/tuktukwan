@@ -2,24 +2,30 @@
 
 import { useEffect, useState } from "react";
 
-interface User {
-  id: string;
-}
-
-export default async function LoggedIn() {
-  const [user, setUser] = useState<User>({ id: "" });
+export default function LoggedIn() {
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://tuktukwan.henriknorrman.com/api/auth/status").then((res) =>
       res.json().then((data) => {
-        setUser(data);
+        console.log("data:", data);
+        setUser(data.user);
+        setLoading(false);
       })
     );
   }, []);
 
-  if (user.id == "") {
-    return <div>Not logged in</div>;
+  if (loading) {
+    console.log("loading:", user);
+    return <div>Loading...</div>;
   } else {
-    return <div>{user.id} logged in</div>;
+    if (user == "offline") {
+      console.log("not logged in:", user);
+      return <div>Not logged in</div>;
+    } else {
+      console.log("logged in:", user);
+      return <div>{user} logged in</div>;
+    }
   }
 }
