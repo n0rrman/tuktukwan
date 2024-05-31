@@ -7,10 +7,10 @@ export default function LoginButtons() {
     <div className="min-h-screen flex flex-col justify-center items-center gap-4">
       <LoggedIn />
       <a
-        href="/api/auth/discord"
-        className="text-center bg-purple-500 text-white w-64"
+        href="/api/auth/line"
+        className="text-center bg-green-500 text-white w-64"
       >
-        Login with Discord
+        Login with LINE
       </a>
       <a
         href="/api/auth/google"
