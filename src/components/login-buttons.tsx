@@ -1,4 +1,4 @@
-"user client";
+"use client";
 
 import LoggedIn from "@/components/logged-in";
 
@@ -30,12 +30,14 @@ export default function LoginButtons() {
       >
         Login with Microsoft
       </a>
-      <a
-        href="/api/auth/logout"
+      <button
+        onClick={() => {
+          fetch("https://tuktukwan.henriknorrman.com/api/auth/logout");
+        }}
         className="text-center bg-red-700 text-white w-64"
       >
         Logout
-      </a>
+      </button>
     </div>
   );
 }
