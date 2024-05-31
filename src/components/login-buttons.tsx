@@ -31,8 +31,10 @@ export default function LoginButtons() {
         Login with Microsoft
       </a>
       <button
-        onClick={() => {
-          fetch("https://tuktukwan.henriknorrman.com/api/auth/logout");
+        onClick={async () => {
+          await fetch("https://tuktukwan.henriknorrman.com/api/auth/logout", {
+            method: "GET",
+          });
           window.location.reload();
         }}
         className="text-center bg-red-700 text-white w-64"
