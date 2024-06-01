@@ -23,6 +23,9 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
+ARG HOST_URL
+ENV HOST_URL=$HOST_URL
+
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 # COPY --from=builder /app/public ./public

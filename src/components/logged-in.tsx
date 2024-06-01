@@ -17,7 +17,7 @@ export default function LoggedIn() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://tuktukwan.henriknorrman.com/api/auth/status").then((res) => {
+    fetch(`${process.env.HOST_URL}/api/auth/status`).then((res) => {
       res.json().then((data) => {
         setUser(data);
         setLoading(false);

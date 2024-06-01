@@ -1,9 +1,9 @@
 "use client";
 
-export default function Home() {
+export default function CreateAccountPage() {
   return (
     <div>
-      <h1>YOU'RE IN!!</h1>
+      <h1>CREATE ACCOUNT PAGE...</h1>
       <button
         onClick={async () => {
           await fetch(`${process.env.HOST_URL}/api/auth/logout`, {

@@ -4,7 +4,7 @@ import LoggedIn from "@/components/logged-in";
 
 export default function LoginButtons() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center gap-4">
+    <div className="flex flex-col justify-center items-center gap-4">
       <LoggedIn />
       <a
         href="/api/auth/line"
@@ -30,17 +30,6 @@ export default function LoginButtons() {
       >
         Login with Microsoft
       </a>
-      <button
-        onClick={async () => {
-          await fetch("https://tuktukwan.henriknorrman.com/api/auth/logout", {
-            method: "GET",
-          });
-          window.location.reload();
-        }}
-        className="text-center bg-red-700 text-white w-64"
-      >
-        Logout
-      </button>
     </div>
   );
 }
