@@ -6,11 +6,14 @@ import cloud2 from "/public/cloud2.svg";
 import LoginButtons from "@/components/login-buttons";
 import { LoginModal } from "@/components/login-modal";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function LandingPage() {
   return (
     <main className="">
-      <LoginModal />
+      <Suspense>
+        <LoginModal />
+      </Suspense>
       <div className="text-white absolute inset-0 flex flex-col gap-4 z-50">
         <div className="grid grid-cols-3 w-full p-5">
           <div>logo</div>

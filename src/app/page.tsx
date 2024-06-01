@@ -3,7 +3,7 @@
 export default function Home() {
   return (
     <div>
-      <h1>YOU'RE IN!!</h1>
+      <h1>YOU ARE IN!!</h1>
       <button
         onClick={async () => {
           await fetch(`${process.env.HOST_URL}/api/auth/logout`, {
