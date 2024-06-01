@@ -29,9 +29,9 @@ export default async function RootLayout({
 }>) {
   const status = await getStatus();
   // const status = {
-  //   credential_id: "",
+  //   credential_id: "22",
   //   token: "",
-  //   user_id: "",
+  //   user_id: "22",
   // };
 
   const renderMode = (children: React.ReactNode) => {
