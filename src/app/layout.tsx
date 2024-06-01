@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Merriweather, Poppins } from "next/font/google";
 import "./globals.css";
 import { getStatus } from "@/services/api/user";
-import CreateAccountPage from "./create-account-page";
-import LandingPage from "./landing-page";
+import CreateAccountPage from "@/components/create-account-page";
+import LandingPage from "@/components/landing-page";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
