@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Merriweather, Poppins } from "next/font/google";
 import "./globals.css";
 import { getStatus } from "@/services/api/user";
-import CreateAccountPage from "@/components/create-account-page";
-import LandingPage from "@/components/landing-page";
+import CreateAccountPage from "@/app/create-account-page";
+import LandingPage from "@/app/landing-page";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
@@ -33,6 +33,9 @@ export default async function RootLayout({
   //   token: "",
   //   user_id: "22",
   // };
+  console.log("credential", status.credential_id);
+  console.log("token", status.token);
+  console.log("user_id", status.user_id);
 
   const renderMode = (children: React.ReactNode) => {
     if (status.credential_id && status.user_id) {

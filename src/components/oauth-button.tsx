@@ -1,4 +1,3 @@
-import { revalidatePath } from "next/cache";
 import Link from "next/link";
 
 interface OAuthButtonProps {
@@ -18,9 +17,6 @@ export function OAuthButton({
 }: OAuthButtonProps) {
   return (
     <Link
-      onClick={() => {
-        revalidatePath("/");
-      }}
       href={`/api/auth/${name}`}
       className={`group hover:text-white flex flex-row gap-1.5 items-center text-lg border-2 py-5 px-7 rounded w-full ${className} ${borderColour} transition`}
     >

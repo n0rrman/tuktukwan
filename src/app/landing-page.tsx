@@ -7,6 +7,10 @@ import LoginButtons from "@/components/login-buttons";
 import { LoginModal } from "@/components/login-modal";
 import Link from "next/link";
 import { Suspense } from "react";
+import { revalidatePath } from "next/cache";
+import { Test1 } from "@/services/test";
+import { Test2 } from "@/services/test";
+import { Test3 } from "@/services/test";
 
 export default function LandingPage() {
   return (
@@ -18,9 +22,12 @@ export default function LandingPage() {
         <div className="grid grid-cols-3 w-full p-5">
           <div>logo</div>
           <div className="flex flex-row gap-4 justify-self-center">
-            <div>nav1</div>
-            <div>nav2</div>
-            <div>nav3</div>
+            <Test1 />
+            <Test2 />
+            <Test3 />
+            {/* <button onClick={test1}>nav1</button> */}
+            {/* <button onClick={test2}>nav2</button> */}
+            {/* <button onClick={test3}>nav3</button> */}
           </div>
           <div className="flex flex-row gap-5 justify-self-end">
             <Link
@@ -52,12 +59,15 @@ export default function LandingPage() {
             libero voluptatibus illum magni.
           </p>
           <div className="w-full flex flex-row gap-5">
-            <Link
-              href="?login=true"
+            <button
+              // href="?login=true"
+              // onClick={() => {
+              // revalidatePath("/");
+              // }}
               className="border-2 rounded-xl px-4 py-2.5"
             >
               Sign in
-            </Link>
+            </button>
             <Link
               href="?login=register"
               className="border-2 rounded-xl px-4 py-2.5"
@@ -108,8 +118,10 @@ export default function LandingPage() {
         </div>
         <div className="relative w-full h-full aspect-[1.83] overflow-x-hidden">
           <Image
-            className="object-cover w-full h-full"
+            className="object-cover"
+            priority={true}
             src={landingBg}
+            fill
             alt=""
           />
         </div>
