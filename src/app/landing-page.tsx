@@ -8,9 +8,6 @@ import { LoginModal } from "@/components/login-modal";
 import Link from "next/link";
 import { Suspense } from "react";
 import { revalidatePath } from "next/cache";
-import { Test1 } from "@/services/test";
-import { Test2 } from "@/services/test";
-import { Test3 } from "@/services/test";
 
 export default function LandingPage() {
   return (
@@ -22,12 +19,9 @@ export default function LandingPage() {
         <div className="grid grid-cols-3 w-full p-5">
           <div>logo</div>
           <div className="flex flex-row gap-4 justify-self-center">
-            <Test1 />
-            <Test2 />
-            <Test3 />
-            {/* <button onClick={test1}>nav1</button> */}
-            {/* <button onClick={test2}>nav2</button> */}
-            {/* <button onClick={test3}>nav3</button> */}
+            <button>nav1</button>
+            <button>nav2</button>
+            <button>nav3</button>
           </div>
           <div className="flex flex-row gap-5 justify-self-end">
             <Link

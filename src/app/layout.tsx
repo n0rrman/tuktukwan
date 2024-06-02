@@ -6,6 +6,8 @@ import CreateAccountPage from "@/app/create-account-page";
 import LandingPage from "@/app/landing-page";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+// import { SessionProvider } from "@/context/session-provider";
+import { cookies } from "next/headers";
 
 const mainFont = Merriweather({
   subsets: ["latin"],
@@ -22,12 +24,40 @@ export const metadata: Metadata = {
   description: "",
 };
 
+// export async function getServerSideProps(context: any) {
+// return { props: { cookie } };
+// }
+
 export default async function RootLayout({
   children,
-}: Readonly<{
+}: // req,
+// cookie,
+Readonly<{
   children: React.ReactNode;
+  // req: Request;
+  // cookie: string;
 }>) {
-  const status = await getStatus();
+  // console.log();
+  const koaSid = cookies().get("koa.sid");
+  const koaSidSig = cookies().get("koa.sid.sig");
+
+  console.log(koaSid);
+  console.log(koaSidSig);
+  // const x = useSession();
+  // console.log("cookie:", cookie);
+
+  const status = await fetch(
+    `${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/status`,
+    {
+      method: "GET",
+      credentials: "include",
+      // headers: {
+      //   Cookie: `koa.sid=${koaSid}`,
+      //   Cookie: `koa.sid.sig=${koaSidSig}`,
+      // },
+    }
+  ).then((res) => res.json());
+  // const status = await getStatus();
   // const status = {
   //   credential_id: "22",
   //   token: "",
