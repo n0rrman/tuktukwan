@@ -1,7 +1,6 @@
 "use client";
 
-import { revalidatePath } from "next/cache";
-import { getStatus } from "./api/user";
+import { getStatus, revalidate } from "./api/user";
 
 export const Test1 = () => {
   return (
@@ -28,15 +27,7 @@ export const Test1 = () => {
 };
 
 export const Test2 = () => {
-  return (
-    <button
-      onClick={() => {
-        revalidatePath("/", "layout");
-      }}
-    >
-      revalidate
-    </button>
-  );
+  return <button onClick={() => revalidate()}>revalidate</button>;
 };
 export const Test3 = () => {
   return (
