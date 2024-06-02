@@ -46,26 +46,27 @@ Readonly<{
   // const x = useSession();
   // console.log("cookie:", cookie);
 
-  const status = await fetch(
-    `${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/status`,
-    {
-      method: "GET",
-      credentials: "include",
-      // headers: {
-      //   Cookie: `koa.sid=${koaSid}`,
-      //   Cookie: `koa.sid.sig=${koaSidSig}`,
-      // },
-    }
-  ).then((res) => res.json());
+  // let status: ;
+  let status = {
+    credential_id: "22",
+    token: "",
+    user_id: "22",
+  };
+  if (koaSid && koaSidSig) {
+    status = await fetch(
+      `${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/status`,
+      {
+        method: "GET",
+        headers: {
+          Cookie: `${koaSid.name}=${koaSid.value};${koaSidSig.name}=${koaSidSig.value};`,
+        },
+      }
+    ).then((res) => res.json());
+  }
   // const status = await getStatus();
-  // const status = {
-  //   credential_id: "22",
-  //   token: "",
-  //   user_id: "22",
-  // };
-  console.log("credential", status.credential_id);
-  console.log("token", status.token);
-  console.log("user_id", status.user_id);
+  // console.log("credential", status.credential_id);
+  // console.log("token", status.token);
+  // console.log("user_id", status.user_id);
 
   const renderMode = (children: React.ReactNode) => {
     if (status.credential_id && status.user_id) {
