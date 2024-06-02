@@ -30,6 +30,7 @@ export const getStatus = async (cookie: Cookie | undefined, cookieSig: Cookie | 
 }
 
 export const signOut = async () => {
+    "use client";
     await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/logout`, {
         method: "GET",
     });
