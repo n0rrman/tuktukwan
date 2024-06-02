@@ -1,13 +1,11 @@
 "use client";
+import Link from "next/link";
+import { FaLine, FaGithub, FaGoogle, FaMicrosoft } from "react-icons/fa";
 
 import { useSearchParams } from "next/navigation";
-import LoginButtons from "./login-buttons";
 import { OAuthButton } from "./oauth-button";
 
-import { FaLine, FaGithub, FaGoogle, FaMicrosoft } from "react-icons/fa";
-import Link from "next/link";
-
-export function LoginModal() {
+export default function LoginModal() {
   const show = useSearchParams().get("login");
   const register = show === "register";
   return (
