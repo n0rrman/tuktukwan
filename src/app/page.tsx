@@ -6,7 +6,7 @@ export default function Home() {
       <h1>YOU ARE IN!!</h1>
       <button
         onClick={async () => {
-          await fetch(`${process.env.HOST_URL!}/api/auth/logout`, {
+          await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/logout`, {
             method: "GET",
           });
           window.location.reload();

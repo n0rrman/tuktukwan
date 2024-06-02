@@ -7,8 +7,10 @@ export const Test1 = () => {
   return (
     <button
       onClick={async () => {
+        console.log(process.env.NEXT_PUBLIC_HOST_URL);
+
         const status = await fetch(
-          `${process.env.HOST_URL!}/api/auth/status`
+          `${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/status`
         ).then((res) => res.json());
         // const status = {
         //   credential_id: "22",
@@ -25,17 +27,38 @@ export const Test1 = () => {
   );
 };
 
-export const Test2 = async () => {
+export const Test2 = () => {
   return (
     <button
       onClick={() => {
-        revalidatePath("/");
+        revalidatePath("/", "layout");
       }}
     >
       revalidate
     </button>
   );
 };
-export const Test3 = async () => {
-  return <button>nav3</button>;
+export const Test3 = () => {
+  return (
+    <button
+      onClick={async () => {
+        console.log(process.env.NEXT_PUBLIC_HOST_URL);
+
+        const status = await fetch(
+          `${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/status`,
+          { cache: "no-store" }
+        ).then((res) => res.json());
+        // const status = {
+        //   credential_id: "22",
+        //   token: "",
+        //   user_id: "22",
+        // };
+        console.log("credential", status.credential_id);
+        console.log("token", status.token);
+        console.log("user_id", status.user_id);
+      }}
+    >
+      status-nocache
+    </button>
+  );
 };

@@ -6,7 +6,7 @@ export default function CreateAccountPage() {
       <h1>CREATE ACCOUNT PAGE...</h1>
       <button
         onClick={async () => {
-          await fetch(`${process.env.HOST_URL!}/api/auth/logout`, {
+          await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/logout`, {
             method: "GET",
           });
           window.location.reload();

@@ -79,7 +79,7 @@ export default function LandingPage() {
       </div>
       <section
         id="hero"
-        className="relative w-full bg-heroBg saturate-[0.8] brightness-75 xl:min-h-[80vh] flex flex-col justify-end"
+        className="relative bg-heroBg saturate-[0.8] brightness-75 xl:min-h-[80vh] flex flex-col justify-end"
       >
         <div className="absolute z-10 opacity-75 top-0 w-full overflow-x-hidden">
           <div className="relative w-[20vw] min-h-12 -ml-[50vw] animate-floatRight3">
