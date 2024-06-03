@@ -1,6 +1,6 @@
 "use client";
 
-import { signOut } from "@/services/api/user";
+import { signOut } from "@/services/api/user-client";
 
 export default function Home() {
   return (

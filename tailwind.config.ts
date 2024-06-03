@@ -19,6 +19,17 @@ const config: Config = {
 
       },
       keyframes: {
+        scaleIn: {
+          '0%': {
+            transform: 'scale(0.4)'
+          },
+          '75%': {
+            transform: 'scale(1.02)'
+          },
+          '100%': {
+            transform: 'scale(1)'
+          }
+        },
         floatRight: {
           '0%': { transform: 'translateX(-50vw)', opacity: "0" },
           '10%': { opacity: "1" },
@@ -27,6 +38,7 @@ const config: Config = {
         },
       },
       animation: {
+        scaleIn: 'scaleIn 0.3s ease-out',
         floatRight1: 'floatRight 60s linear infinite',
         floatRight2: 'floatRight 70s linear infinite',
         floatRight3: 'floatRight 80s linear infinite',

@@ -12,7 +12,7 @@ export default function LoginModal() {
     <>
       {show && (
         <dialog className="fixed inset-x-0 top-0 bg-black/20 overflow-y-auto h-full w-full flex items-center justify-center z-[100]">
-          <div className="bg-white flex flex-col gap-4 p-10 w-max rounded-lg">
+          <div className="bg-white flex flex-col gap-4 p-10 w-max rounded-lg animate-scaleIn">
             <OAuthButton
               name="LINE"
               borderColour="border-line text-line"

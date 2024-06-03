@@ -6,7 +6,9 @@ import { mainFont } from "./fonts";
 import LandingPage from "@/components/signin/landing-page";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { getStatus } from "@/services/api/user";
+import { getStatus } from "@/services/api/user-server";
+import TermsPage from "./terms-page";
+import PolicyPage from "./policy-page";
 
 export const metadata: Metadata = {
   title: "Tuktukwan",
@@ -20,16 +22,18 @@ export default async function RootLayout({
 }>) {
   const koaSid = cookies().get("koa.sid");
   const koaSidSig = cookies().get("koa.sid.sig");
-  const status = await getStatus(koaSid, koaSidSig);
-  // const status = {
-  //   userId: "",
-  //   token: "",
-  //   credentialId: "asd",
-  // };
+  // const status = await getStatus(koaSid, koaSidSig);
+  const status = {
+    userId: "",
+    token: "",
+    credentialId: "asd",
+  };
 
   return (
     <html lang="en">
       <body className={mainFont.className}>
+        <TermsPage />
+        <PolicyPage />
         {status.userId ? (
           <>
             <Header />
