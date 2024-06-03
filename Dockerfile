@@ -23,7 +23,10 @@ FROM base AS runner
 WORKDIR /app
 
 ARG HOST_URL
+ARG SERVER_KEY
+
 ENV HOST_URL=$HOST_URL
+ENV SERVER_KEY=$SERVER_KEY
 
 ENV NODE_ENV production
 RUN addgroup --system --gid 1001 nodejs

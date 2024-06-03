@@ -7,7 +7,6 @@ interface FormInputProps {
   id: string;
   title: string;
   placeholder: string;
-  textarea?: boolean;
   errors?: string[] | undefined;
 }
 
@@ -15,7 +14,6 @@ export default function FormInput({
   id,
   title,
   placeholder,
-  textarea,
   errors,
 }: FormInputProps) {
   useEffect(() => {
@@ -38,12 +36,12 @@ export default function FormInput({
     const className = `
     ${
       !!errors
-        ? "placeholder:text-red-600/40 border-red-600/65 dark:placeholder:text-red-500/40 dark:placeholder:text-red-500/65 dark:border-red-500"
-        : "placeholder:text-slate-950/40 border-slate-950/65 dark:placeholder:text-slate-200/65 dark:placeholder:text-slate-200/65 dark:border-slate-200"
+        ? "placeholder:text-red-600/40 border-red-600/65"
+        : "placeholder:text-slate-950/50 border-slate-950/20"
     }
     ${
       !!value ? "placeholder:opacity-0" : "placeholder:opacity-100"
-    } z-10 p-3 outline-none placeholder:tracking-widest focus:border-orange-400 dark:focus:border-orange-400 focus:placeholder:-translate-y-[2.2rem] placeholder:opacity-100 focus:placeholder:opacity-0 placeholder:transition bg-transparent border-2 rounded-lg`;
+    } z-10 p-3 outline-none placeholder:tracking-widest focus:border-blue-400 focus:placeholder:-translate-y-[2.2rem] placeholder:opacity-100 focus:placeholder:opacity-0 placeholder:transition bg-transparent border-2 rounded-lg`;
     return (
       <input
         name={id}
@@ -54,6 +52,10 @@ export default function FormInput({
       />
     );
   };
+
+  if (errors) {
+    console.log(errors[0]);
+  }
 
   return (
     <div className="group flex flex-col-reverse text-xs w-full">
@@ -69,13 +71,7 @@ export default function FormInput({
         htmlFor={title}
       >
         {title}
-        {errors && (
-          <span className="text-[0.6rem]">
-            {/* {errors[0] === error.INPUT_NOT_EMAIL && errorMsgs[errors[0]]}
-            {errors[0] === error.INPUT_TOO_LONG && errorMsgs[errors[0]]}
-            {errors[0] === error.INPUT_TOO_SHORT && errorMsgs[errors[0]]} */}
-          </span>
-        )}
+        {errors && <span className="text-[0.6rem]">{errors[0]}</span>}
       </label>
     </div>
   );

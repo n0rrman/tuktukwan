@@ -1,5 +1,9 @@
 "use client";
 
+export const clientPrint = () => {
+    console.log("where is this printed?")
+}
+
 export const signOut = async () => {
     await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/logout`, {
         method: "GET",

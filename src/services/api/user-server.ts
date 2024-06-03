@@ -11,6 +11,20 @@ export const refreshStatus = () => {
     revalidatePath('/');
 }
 
+export const checkUser = async (username: string, email: string) => {
+    const status = await fetch(
+    `${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/check`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "username": username, 
+            "email": email, 
+            "key": process.env.SERVER_AUTH_KEY!, 
+        }
+    }).then((res) => res.json());
+    return status
+}
+
 export const getStatus = async (cookie: Cookie | undefined, cookieSig: Cookie | undefined) => {
     if (cookie && cookieSig) {
         const status = await fetch(
