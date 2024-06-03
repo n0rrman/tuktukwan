@@ -20,14 +20,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const koaSid = cookies().get("koa.sid");
-  const koaSidSig = cookies().get("koa.sid.sig");
-  // const status = await getStatus(koaSid, koaSidSig);
-  const status = {
-    userId: "",
-    token: "",
-    credentialId: "11",
-  };
+  let status;
+  if (process.env.NODE_ENV === "development") {
+    status = {
+      userId: "",
+      token: "",
+      credentialId: "11",
+    };
+  } else {
+    const koaSid = cookies().get("koa.sid");
+    const koaSidSig = cookies().get("koa.sid.sig");
+    status = await getStatus(koaSid, koaSidSig);
+  }
 
   return (
     <html lang="en">
