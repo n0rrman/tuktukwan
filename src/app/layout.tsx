@@ -22,12 +22,12 @@ export default async function RootLayout({
 }>) {
   const koaSid = cookies().get("koa.sid");
   const koaSidSig = cookies().get("koa.sid.sig");
-  // const status = await getStatus(koaSid, koaSidSig);
-  const status = {
-    userId: "",
-    token: "",
-    credentialId: "asd",
-  };
+  const status = await getStatus(koaSid, koaSidSig);
+  // const status = {
+  //   userId: "",
+  //   token: "",
+  //   credentialId: "asd",
+  // };
 
   return (
     <html lang="en">
