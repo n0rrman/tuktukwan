@@ -1,8 +1,14 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 interface Cookie {
     name: string,
     value: string
+}
+
+export const refreshStatus = () => {
+    revalidatePath('/');
 }
 
 export const getStatus = async (cookie: Cookie | undefined, cookieSig: Cookie | undefined) => {

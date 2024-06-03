@@ -10,6 +10,7 @@ import { addUser, signOut } from "@/services/api/user-client";
 import FormInput from "../form-input";
 import { createNewAccount } from "@/actions";
 import { startTransition, useRef, useState } from "react";
+import { refreshStatus } from "@/services/api/user-server";
 
 interface CreateAccountModalProps {}
 
@@ -50,6 +51,7 @@ export default function CreateAccountModal({}: CreateAccountModalProps) {
     setCreated(true);
     const { username, displayName, email } = formState.payload!;
     addUser(username, displayName, email);
+    refreshStatus();
   }
 
   return (
@@ -159,6 +161,15 @@ export default function CreateAccountModal({}: CreateAccountModalProps) {
                     className="text-black border-2 w-fit py-2 px-7 rounded mt-4"
                   >
                     Cancel
+                  </button>
+                  <button
+                    onClick={async () => {
+                      await signOut();
+                      refreshStatus();
+                    }}
+                    className="text-black border-2 w-fit py-2 px-7 rounded mt-4"
+                  >
+                    Cancel Revalidate
                   </button>
                 </div>
               </form>
