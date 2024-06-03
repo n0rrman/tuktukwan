@@ -156,20 +156,11 @@ export default function CreateAccountModal({}: CreateAccountModalProps) {
                   <button
                     onClick={async () => {
                       await signOut();
-                      window.location.reload();
-                    }}
-                    className="text-black border-2 w-fit py-2 px-7 rounded mt-4"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={async () => {
-                      await signOut();
                       refreshStatus();
                     }}
                     className="text-black border-2 w-fit py-2 px-7 rounded mt-4"
                   >
-                    Cancel Revalidate
+                    Cancel
                   </button>
                 </div>
               </form>
