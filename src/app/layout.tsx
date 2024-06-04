@@ -25,7 +25,7 @@ export default async function RootLayout({
     status = {
       userId: "",
       token: "",
-      credentialId: "asd",
+      credentialId: "",
     };
   } else {
     const koaSid = cookies().get("koa.sid");
