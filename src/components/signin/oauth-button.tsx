@@ -4,6 +4,7 @@ interface OAuthButtonProps {
   borderColour: string;
   register: boolean;
   className: string;
+  clicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function OAuthButton({
@@ -12,9 +13,11 @@ export function OAuthButton({
   borderColour,
   register,
   className,
+  clicked,
 }: OAuthButtonProps) {
   return (
     <a
+      onClick={() => clicked(true)}
       href={`/api/auth/${name}`}
       className={`group hover:text-white flex flex-row gap-1.5 items-center text-lg border-2 py-5 px-7 rounded w-full ${className} ${borderColour} transition`}
     >

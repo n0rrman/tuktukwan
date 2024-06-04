@@ -5,7 +5,7 @@ import cloud2 from "/public/cloud2.svg";
 
 export default function HeroBackground() {
   return (
-    <div className="relative z-10 bg-heroBg saturate-[0.8] brightness-75 xl:min-h-[80vh] flex flex-col justify-end">
+    <div className="relative z-10 bg-heroBg saturate-[0.8] brightness-75 h-[90vh] min-h-[60ch] flex flex-col justify-end">
       <div className="absolute z-10 opacity-75 top-0 w-full overflow-x-hidden">
         <div className="relative w-[20vw] min-h-12 -ml-[50vw] animate-floatRight3">
           <Image src={cloud1} fill alt="" />

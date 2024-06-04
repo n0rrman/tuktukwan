@@ -6,6 +6,7 @@ import LandingHeader from "./landing-header";
 import Footer from "@/components/footer";
 import LandingHero from "./landing-hero";
 import HeroBackground from "./hero-background";
+import InfoSection from "./info-section";
 
 interface LandingPageProps {
   userId: string;
@@ -31,6 +32,7 @@ export default function LandingPage({
           <LandingHeader />
           <LandingHero />
         </div>
+        <InfoSection />
       </main>
       <Footer />
     </>

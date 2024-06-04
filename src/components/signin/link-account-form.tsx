@@ -2,7 +2,7 @@ import FormInput from "../form-input";
 import { startTransition, useRef } from "react";
 import { useFormState } from "react-dom";
 import { linkAccount } from "@/actions";
-import { linkUser } from "@/services/api/user-client";
+import { linkUser, signOut } from "@/services/api/user-client";
 import { refreshStatus } from "@/services/api/user-server";
 
 interface FormProps {
@@ -55,10 +55,10 @@ export default function LinkAccountForm({ done, setDone }: FormProps) {
         placeholder="EMAIL: email@example.com"
         errors={formState?.errors.email}
       />
-      <div className="flex flex-row justify-end gap-10">
+      <div className="flex flex-row items-center justify-end gap-10">
         <button
           type="submit"
-          className="text-black border-2 w-fit py-2 px-7 rounded mt-4"
+          className="text-black border-2 w-full py-2 px-7 rounded mt-4"
         >
           Send request
         </button>
