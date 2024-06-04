@@ -2,6 +2,8 @@ import FormInput from "../form-input";
 import { startTransition, useRef } from "react";
 import { useFormState } from "react-dom";
 import { linkAccount } from "@/actions";
+import { linkUser } from "@/services/api/user-client";
+import { refreshStatus } from "@/services/api/user-server";
 
 interface FormProps {
   done: boolean;
@@ -31,8 +33,8 @@ export default function LinkAccountForm({ done, setDone }: FormProps) {
     window.localStorage.removeItem("username");
     window.localStorage.removeItem("email");
     const { username, email } = formState.payload!;
-    // addUser(username, email);
-    // refreshStatus();
+    linkUser(username, email);
+    refreshStatus();
   }
 
   return (
