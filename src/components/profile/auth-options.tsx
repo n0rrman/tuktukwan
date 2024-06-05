@@ -1,5 +1,7 @@
 "use client";
 
+import { getAllCredentials } from "@/services/api/user-client";
+import { useState, useEffect } from "react";
 // remove user verified + created at..
 
 interface Option {
@@ -10,17 +12,24 @@ interface Option {
   auth_picture: string;
 }
 
-import { getAllCredentials } from "@/services/api/user-client";
-import { useState, useEffect } from "react";
-
 export default function AuthOptions() {
   const [options, setOptions] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getAllCredentials().then((data) => {
-      setOptions(data);
-    });
-  }, []);
+    setLoading(true);
+    (async () => {
+      try {
+        await getAllCredentials().then((data) => {
+          console.log(data);
+          setOptions(data);
+          setLoading(false);
+        });
+      } catch (err: unknown) {
+        console.log("whoopsie??");
+      }
+    })();
+  }, [options]);
 
   const renderedOptions = options.map((option: Option) => {
     return (
@@ -36,6 +45,7 @@ export default function AuthOptions() {
   return (
     <div>
       <h2>options:</h2>
+      <p>{loading && "loading"}</p>
       <div>{renderedOptions}</div>
     </div>
   );

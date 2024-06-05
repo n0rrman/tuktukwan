@@ -22,7 +22,7 @@ export const linkUser = async (username: string, email: string) => {
 }
 
 export const getAllCredentials = async () => {
-    const credentials = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/options`, { 
+    const credentials = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/credentials`, { 
         method: "GET"
     }).then((res) => res.json());
     return credentials;
