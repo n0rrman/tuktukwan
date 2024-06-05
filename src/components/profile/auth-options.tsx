@@ -11,9 +11,16 @@ interface Option {
 }
 
 import { getAllCredentials } from "@/services/api/user-client";
+import { useState, useEffect } from "react";
 
-export default async function AuthOptions() {
-  const options = await getAllCredentials();
+export default function AuthOptions() {
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    getAllCredentials().then((data) => {
+      setOptions(data);
+    });
+  }, []);
 
   const renderedOptions = options.map((option: Option) => {
     return (
@@ -28,7 +35,7 @@ export default async function AuthOptions() {
 
   return (
     <div>
-      <h2>options</h2>
+      <h2>options:</h2>
       <div>{renderedOptions}</div>
     </div>
   );
