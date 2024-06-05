@@ -26,10 +26,10 @@ export default function AuthOptions() {
           setLoading(false);
         });
       } catch (err: unknown) {
-        console.log("whoopsie??");
+        console.log("Something went wrong!");
       }
     })();
-  }, [options]);
+  }, []);
 
   const renderedOptions = options.map((option: Option) => {
     return (
