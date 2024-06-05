@@ -1,20 +1,14 @@
-"use client";
-
-import { signOut } from "@/services/api/user-client";
-
 export default function Home() {
   return (
-    <div>
-      <h1>YOU ARE IN!!</h1>
-      <button
-        onClick={async () => {
-          await signOut();
-          window.location.reload();
-        }}
-        className="text-center bg-red-700 text-white w-64"
-      >
-        Logout
-      </button>
+    <div className="w-full">
+      <div>
+        <div>
+          <div className="bg-slate-200 p-5">lesson1</div>
+          <div className="bg-slate-200 p-5">lesson2</div>
+          <div className="bg-slate-200 p-5">lesson3</div>
+        </div>
+      </div>
+      <div className="flex flex-col bg-slate-200 p-10 rounded">counter</div>
     </div>
   );
 }

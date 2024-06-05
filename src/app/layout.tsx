@@ -23,9 +23,9 @@ export default async function RootLayout({
   let status;
   if (process.env.NODE_ENV === "development") {
     status = {
-      userId: "",
+      userId: "!",
       token: "",
-      credentialId: "",
+      credentialId: "!!",
     };
   } else {
     const koaSid = cookies().get("koa.sid");
@@ -35,15 +35,17 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={mainFont.className}>
+      <body className={`{mainFont.className} bg-slate-300`}>
         <TermsPage />
         <PolicyPage />
         {status.userId ? (
-          <>
+          <div className="min-h-screen flex flex-col justify-between">
             <Header />
-            <main>{children}</main>
+            <main className="mx-auto pt-28 max-w-[75rem] p-5 w-full">
+              {children}
+            </main>
             <Footer />
-          </>
+          </div>
         ) : (
           <LandingPage
             userId={status.userId}
