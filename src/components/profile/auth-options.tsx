@@ -2,18 +2,23 @@
 
 import { getAllCredentials } from "@/services/api/user-client";
 import { useState, useEffect } from "react";
-// remove user verified + created at..
+import { FaLine, FaGithub, FaGoogle, FaMicrosoft } from "react-icons/fa";
+import profilePic from "/public/no-profile.jpg";
+import Image from "next/image";
 
 interface Option {
   id: number;
+  user_id: number;
+  user_verified: boolean;
   auth_id: string;
   auth_username: string;
   auth_provider: string;
   auth_picture: string;
+  created_at: string;
 }
 
 export default function AuthOptions() {
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState<Option[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -31,21 +36,53 @@ export default function AuthOptions() {
     })();
   }, []);
 
-  const renderedOptions = options.map((option: Option) => {
+  const renderedOptions = options!.map((option: Option) => {
+    let logo: React.ReactElement;
+    let borderColour: string;
+    switch (option.auth_provider) {
+      case "line":
+        logo = <FaLine className="text-line" />;
+        borderColour = "border-line/60";
+        break;
+      case "microsoft":
+        logo = <FaMicrosoft className="text-microsoft" />;
+        borderColour = "border-microsoft/60";
+        break;
+      case "google":
+        logo = <FaGoogle className="text-google" />;
+        borderColour = "border-google/60";
+        break;
+      default:
+        logo = <FaGithub className="text-github" />;
+        borderColour = "border-github/60";
+        break;
+    }
+
     return (
-      <div key={option.id}>
-        <div>id: {option.auth_id}</div>
-        <div>username: {option.auth_username}</div>
-        <div>provider: {option.auth_provider}</div>
-        <div>picture: {option.auth_picture}</div>
+      <div
+        key={option.id}
+        className=" flex flex-row justify-start items-center py-2"
+      >
+        <div
+          className={`${borderColour} border-2 relative h-10 w-10 overflow-hidden rounded-full`}
+        >
+          <img
+            alt=""
+            src={option.auth_picture || profilePic.src}
+            className="w-full h-full scale-[1.1]"
+          />
+        </div>
+        <div className="-translate-x-2 translate-y-4 text-lg">{logo}</div>
+        <div className={`${borderColour} border-b-2 text-md w-max`}>
+          {option.auth_username}
+        </div>
       </div>
     );
   });
 
   return (
-    <div>
-      <h2>options:</h2>
-      <p>{loading && "loading"}</p>
+    <div className="">
+      <p>{loading && "Loading..."}</p>
       <div>{renderedOptions}</div>
     </div>
   );

@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { mainFont } from "./fonts";
 import LandingPage from "@/components/signin/landing-page";
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import Footer from "@/components/footer";
 import { getStatus } from "@/services/api/user-server";
 import TermsPage from "./terms-page";
@@ -40,7 +40,7 @@ export default async function RootLayout({
         <PolicyPage />
         {status.userId ? (
           <div className="min-h-screen flex flex-col justify-between">
-            <Header />
+            <Header userId={status.userId} />
             <main className="mx-auto pt-28 max-w-[75rem] p-5 w-full">
               {children}
             </main>
