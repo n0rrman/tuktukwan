@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import CreateAccountForm from "./create-account-form";
-import LinkAccountForm from "./link-account-form";
 import Loading from "../loading";
-import Link from "next/link";
 import { MdCancel } from "react-icons/md";
 import { signOut } from "@/services/api/user-client";
 import { refreshStatus } from "@/services/api/user-server";
@@ -25,7 +23,6 @@ export default function CreateAccountModal({}: CreateAccountModalProps) {
         {created ? (
           <Loading />
         ) : (
-          // <div className="grid grid-cols-2dd gap-8">
           <div className="flex flex-col w-full sm:w-80">
             <button
               onClick={() => {
@@ -38,18 +35,6 @@ export default function CreateAccountModal({}: CreateAccountModalProps) {
             <div>
               <h1 className="text-lg pb-5 font-semibold">Create new account</h1>
               <CreateAccountForm done={created} setDone={setCreated} />
-              {/* </div> */}
-              {/* <div className="flex flex-col border-l pl-8 space-y-3">
-              <h1 className="text-lg font-semibold">Link existing account</h1>
-              <p className="w-[37.5ch] text-sm">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Voluptatum ullam ipsam soluta laborum aliquam quis, incidunt
-              fugit saepe doloremque exercitationem veniam, tenetur nesciunt
-              esse necessitatibus minus quia debitis ex nostrum.
-              </p>
-              <LinkAccountForm done={created} setDone={setCreated} />
-              </div>
-            </div> */}
             </div>
           </div>
         )}
