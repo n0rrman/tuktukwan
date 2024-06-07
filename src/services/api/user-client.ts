@@ -10,6 +10,13 @@ export const signOut = async () => {
     });
 }
 
+export const getProfileInfo = async () => {
+    const user = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/me`, {
+        method: "GET"
+    }).then((res) => res.json());
+    return user;
+}
+
 export const linkUser = async (username: string, email: string) => {
     await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/link`, {
         method: "POST",
