@@ -64,12 +64,12 @@ export default function AuthOptions() {
         className=" flex flex-row justify-start items-center py-2"
       >
         <div
-          className={`${borderColour} border-2 relative h-10 w-10 overflow-hidden rounded-full`}
+          className={`${borderColour} border-2 relative h-10 w-10 overflow-hidden rounded-full z-10`}
         >
           <img
             alt=""
             src={option.auth_picture || profilePic.src}
-            className="w-full h-full scale-[1.1]"
+            className="w-full h-full"
           />
         </div>
         <div className="-translate-x-2 translate-y-4 text-lg">{logo}</div>

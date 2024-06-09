@@ -38,8 +38,9 @@ export default function CreateAccountForm({ done, setDone }: FormProps) {
     window.localStorage.removeItem("displayName");
     window.localStorage.removeItem("email");
     const { username, displayName, email } = formState.payload!;
-    addUser(username, displayName, email);
-    refreshStatus();
+    addUser(username, displayName, email).then(() => {
+      refreshStatus();
+    });
   }
 
   return (

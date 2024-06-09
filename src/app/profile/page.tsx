@@ -38,9 +38,9 @@ export default function ProfilePage({}: ProfilePageProps) {
       <div className="bg-slate-200 p-10">
         <div className="flex flex-col justify-center items-center gap-3">
           <div className="rounded-full w-32 h-32 bg-slate-400"></div>
-          <div>{loading ? "loading" : profile!.username}</div>
-          <div>{loading ? "loading" : profile!.display_name}</div>
-          <div>{loading ? "loading" : profile!.email}</div>
+          <div>{loading ? "loading" : profile?.username}</div>
+          <div>{loading ? "loading" : profile?.display_name}</div>
+          <div>{loading ? "loading" : profile?.email}</div>
           <Link href="/settings">Edit</Link>
         </div>
       </div>

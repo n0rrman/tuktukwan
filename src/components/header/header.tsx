@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "/public/logo.png";
 import ProfileButton from "./profile-button";
-import { getProfileInfo } from "@/services/api/user-client";
+import { getProfileInfo, signOut } from "@/services/api/user-client";
 import { useEffect, useState } from "react";
 
 interface ProfileData {
@@ -34,7 +34,7 @@ export default function Header({ userId }: HeaderProps) {
           setLoading(false);
         });
       } catch (err: unknown) {
-        console.log("Something went wrong!");
+        console.log("header:getProfileInfo() - Something went wrong!");
       }
     })();
   }, []);
@@ -57,7 +57,7 @@ export default function Header({ userId }: HeaderProps) {
       <div className="flex flex-row gap-5">
         <div className="w-16 text-center">Learn</div>
         <div className="w-16 text-center">Review</div>
-        <ProfileButton username="peterjackson" />
+        <ProfileButton username={profile?.username} />
       </div>
     </header>
   );

@@ -1,7 +1,6 @@
 import { signOut } from "@/services/api/user-client";
 import { refreshStatus } from "@/services/api/user-server";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { ImSpinner2 } from "react-icons/im";
 import { MdCancel } from "react-icons/md";
 

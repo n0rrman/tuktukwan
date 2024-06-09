@@ -7,12 +7,22 @@ export const clientPrint = () => {
 export const signOut = async () => {
     await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/logout`, {
         method: "GET",
+        credentials: 'include',
+        headers: {
+            "Access-Control-Request-Method": "GET",
+            "Access-Control-Allow-Credentials": "true",
+        }
     });
 }
 
 export const getProfileInfo = async () => {
     const user = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/me`, {
-        method: "GET"
+        method: "GET",
+        credentials: 'include',
+        headers: {
+            "Access-Control-Request-Method": "GET",
+            "Access-Control-Allow-Credentials": "true",
+        }
     }).then((res) => res.json());
     return user;
 }
@@ -20,7 +30,10 @@ export const getProfileInfo = async () => {
 export const linkUser = async (username: string, email: string) => {
     await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/link`, {
         method: "POST",
+        credentials: 'include',
         headers: {
+            "Access-Control-Request-Method": "GET",
+            "Access-Control-Allow-Credentials": "true",
             "Content-Type": "application/json",
             "username": username,
             "email": email,
@@ -30,7 +43,12 @@ export const linkUser = async (username: string, email: string) => {
 
 export const getAllCredentials = async () => {
     const credentials = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/credentials`, { 
-        method: "GET"
+        method: "GET",
+        credentials: 'include',
+        headers: {
+            "Access-Control-Request-Method": "GET",
+            "Access-Control-Allow-Credentials": "true",
+        }
     }).then((res) => res.json());
     return credentials;
 }
@@ -38,11 +56,14 @@ export const getAllCredentials = async () => {
 export const addUser = async (username: string, displayName: string, email: string) => {
     await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/new`, {
         method: "POST",
+        credentials: 'include',
         headers: {
             "Content-Type": "application/json",
             "username": username,
             "display_name": displayName,
             "email": email,
+            "Access-Control-Request-Method": "GET",
+            "Access-Control-Allow-Credentials": "true",
         }
     });
 }
