@@ -44,7 +44,7 @@ export default function Header({ userId }: HeaderProps) {
   }
 
   return (
-    <header className="fixed flex flex-row justify-between items-center w-full py-4 px-10 shadow-lg shadow-slate-400/20 bg-slate-200">
+    <header className="fixed flex flex-row justify-between items-center w-full py-4 px-10 shadow-lg shadow-slate-400/20 bg-slate-200 z-50">
       <Link
         href="/"
         className={`${logoFont.className} flex flex-col w-max justify-center items-center text-slate-800 cursor-pointer`}

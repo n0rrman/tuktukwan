@@ -39,7 +39,7 @@ export default function ProfileButton({ username }: ProfileButtonProps) {
           open
             ? "opacity-100 scale-100 translate-y-4 -translate-x-24"
             : "opacity-0 scale-0 translate-y-0"
-        } absolute h-auto w-[12.6rem] shadow-xl z-50 ease-in-out transition-all duration-200 bg-slate-100 p-3 rounded`}
+        } absolute h-auto w-[12.6rem] shadow-xl z-40 ease-in-out transition-all duration-200 bg-slate-100 p-3 rounded`}
       >
         <div className="flex flex-col items-start gap-3">
           <Link href="/profile">profile</Link>

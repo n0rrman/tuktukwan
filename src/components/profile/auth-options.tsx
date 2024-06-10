@@ -69,7 +69,7 @@ export default function AuthOptions() {
           <img
             alt=""
             src={option.auth_picture || profilePic.src}
-            className="w-full h-full"
+            className="w-full h-full scale-[1.1]"
           />
         </div>
         <div className="-translate-x-2 translate-y-4 text-lg">{logo}</div>
