@@ -1,6 +1,6 @@
 "use client";
 
-import { getAllCredentials } from "@/services/api/user-client";
+import { getAllCredentials, unlinkAccount } from "@/services/api/user-client";
 import { useState, useEffect } from "react";
 import { FaLine, FaGithub, FaGoogle, FaMicrosoft } from "react-icons/fa";
 import profilePic from "/public/no-profile.jpg";
@@ -36,6 +36,12 @@ export default function AuthOptions() {
     })();
   }, []);
 
+  const handleUnlink = (id: number) => {
+    if (options.length > 1) {
+      unlinkAccount(id.toString());
+    }
+  };
+
   const renderedOptions = options!.map((option: Option) => {
     let logo: React.ReactElement;
     let borderColour: string;
@@ -61,7 +67,8 @@ export default function AuthOptions() {
     return (
       <div
         key={option.id}
-        className=" flex flex-row justify-start items-center py-2"
+        onClick={() => handleUnlink(option.id)}
+        className="flex flex-row justify-start items-center py-2 cursor-pointer"
       >
         <div
           className={`${borderColour} border-2 relative h-10 w-10 overflow-hidden rounded-full z-10`}

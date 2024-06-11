@@ -1,6 +1,7 @@
 "use client";
 
 import AuthOptions from "@/components/profile/auth-options";
+import LoginModal from "@/components/signin/login-modal";
 import { getProfileInfo } from "@/services/api/user-client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -47,11 +48,14 @@ export default function ProfilePage({}: ProfilePageProps) {
       <div className="bg-slate-200 p-10 w-full">
         delete account, member since, streak, follows, followed by
       </div>
-      <div className="bg-slate-200 p-6">
+      <div className="bg-slate-200 p-6 w-max">
         <div className="">Linked accounts</div>
         <AuthOptions />
-        <div>unlink account</div>
-        <div>link account</div>
+
+        <LoginModal redirect="/profile" />
+        <Link href="?login=link" className="font-semibold py-2 w-full">
+          <span className="w-max">Link new account</span>
+        </Link>
       </div>
     </div>
   );

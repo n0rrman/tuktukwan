@@ -3,11 +3,14 @@ import { refreshStatus } from "@/services/api/user-server";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import profilePic from "/public/no-profile.jpg";
+
 interface ProfileButtonProps {
   username?: string;
+  image?: string;
 }
 
-export default function ProfileButton({ username }: ProfileButtonProps) {
+export default function ProfileButton({ username, image }: ProfileButtonProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
@@ -32,7 +35,12 @@ export default function ProfileButton({ username }: ProfileButtonProps) {
 
   return (
     <div onClick={handleClick} ref={ref}>
-      {username}
+      <div className="cursor-pointer flex flex-row items-center justify-center gap-1">
+        <div>{username ? username : "loading"}</div>
+        <div className={`relative h-6 w-6 overflow-hidden rounded-full z-10`}>
+          <img alt="" src={image || profilePic.src} className="w-full h-full" />
+        </div>
+      </div>
 
       <div
         className={`${

@@ -57,7 +57,10 @@ export default function Header({ userId }: HeaderProps) {
       <div className="flex flex-row gap-5">
         <div className="w-16 text-center">Learn</div>
         <div className="w-16 text-center">Review</div>
-        <ProfileButton username={profile?.username} />
+        <ProfileButton
+          username={profile?.username}
+          image={profile?.auth_picture}
+        />
       </div>
     </header>
   );
