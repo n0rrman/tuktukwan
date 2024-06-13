@@ -37,6 +37,7 @@ export default function AuthOptions() {
   }, []);
 
   const handleUnlink = (id: number) => {
+    console.log(options.length);
     if (options.length > 1) {
       unlinkAccount(id.toString());
     }
