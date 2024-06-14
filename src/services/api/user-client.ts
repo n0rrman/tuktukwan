@@ -33,7 +33,7 @@ export const unlinkAccount = async (auth_id: string) => {
         method: "DELETE",
         credentials: 'include',
         headers: {
-            "Access-Control-Request-Method": "GET",
+            "Access-Control-Request-Method": "DELETE",
             "Access-Control-Allow-Credentials": "true",
             "Content-Type": "application/json",
             "auth_id": auth_id,
