@@ -29,7 +29,7 @@ export const getProfileInfo = async () => {
 
 
 export const unlinkAccount = async (auth_id: string) => {
-    await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/unlink`, {
+    await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/link`, {
         method: "DELETE",
         credentials: 'include',
         headers: {
