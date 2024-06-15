@@ -60,3 +60,8 @@ export default function ProfilePage({}: ProfilePageProps) {
     </div>
   );
 }
+
+/**
+ * Export Data
+Download a copy of the personal data you have provided.
+ */
