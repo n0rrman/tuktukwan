@@ -52,7 +52,7 @@ export default function Header({ userId }: HeaderProps) {
         <div className="relative w-12 h-10 -mb-1">
           <Image src={logo} alt="logo" fill />
         </div>
-        <span className="text-xl">ทุกๆวัน</span>
+        <span className="text-xl w-fit">ทุกๆวัน</span>
       </Link>
       <div className="flex flex-row gap-5">
         <div className="w-16 text-center">Learn</div>
