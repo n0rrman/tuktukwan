@@ -28,7 +28,7 @@ export const getProfileInfo = async () => {
 }
 
 
-export const unlinkAccount = async (auth_id: string) => {
+export const unlinkAccount = async (credential_id: string) => {
     await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/link`, {
         method: "DELETE",
         credentials: 'include',
@@ -36,24 +36,10 @@ export const unlinkAccount = async (auth_id: string) => {
             "Access-Control-Request-Method": "DELETE",
             "Access-Control-Allow-Credentials": "true",
             "Content-Type": "application/json",
-            "auth_id": auth_id,
+            "credential_id": credential_id,
         }
     });
 }
-
-// export const linkUser = async (username: string, email: string) => {
-//     await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/user/link`, {
-//         method: "POST",
-//         credentials: 'include',
-//         headers: {
-//             "Access-Control-Request-Method": "GET",
-//             "Access-Control-Allow-Credentials": "true",
-//             "Content-Type": "application/json",
-//             "username": username,
-//             "email": email,
-//         }
-//     });
-// }
 
 export const getAllCredentials = async () => {
     const credentials = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL!}/api/auth/credentials`, { 
